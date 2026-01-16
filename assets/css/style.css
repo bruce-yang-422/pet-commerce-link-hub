@@ -319,7 +319,7 @@ body {
 }
 
 .link-card:hover .link-icon {
-  transform: scale(1.1) rotate(-5deg);
+  transform: scale(1.15) rotate(-8deg);
 }
 
 /* 品牌 Logo 圖片樣式 */
