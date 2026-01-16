@@ -533,48 +533,61 @@ a.bento-card:hover .card-arrow {
 /* ===== 響應式設計 - 手機 ===== */
 @media (max-width: 768px) {
   .bento-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 12px;
-    padding: 24px 12px 48px;
+    padding: 24px 16px 48px;
   }
 
+  /* Header - 全寬 */
   .header-card {
-    grid-column: span 2;
-    min-height: 240px;
-    padding: 24px;
+    grid-column: span 1;
+    min-height: 220px;
+    padding: 32px 24px;
   }
 
   .brand-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .brand-slogan {
     font-size: 0.9rem;
   }
 
+  .paw-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  /* Banner - 全寬 */
   .banner-card {
-    grid-column: span 2;
-    min-height: 220px;
+    grid-column: span 1;
+    min-height: 200px;
   }
 
   .banner-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .banner-content p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
+  /* 品牌卡片 - 細長條形 */
   .brand-card {
     grid-column: span 1;
-    min-height: 180px;
-    padding: 20px;
+    flex-direction: row;
+    align-items: center;
+    min-height: auto;
+    padding: 16px 20px;
+    gap: 16px;
   }
 
   .brand-logo-wrapper,
   .brand-icon-wrapper {
     width: 56px;
     height: 56px;
+    margin-bottom: 0;
+    flex-shrink: 0;
   }
 
   .brand-logo-img {
@@ -582,12 +595,28 @@ a.bento-card:hover .card-arrow {
     height: 44px;
   }
 
-  .brand-name {
-    font-size: 1.1rem;
+  .brand-info {
+    flex: 1;
+    text-align: left;
   }
 
+  .brand-name {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+  }
+
+  .brand-desc {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+
+  .brand-meta {
+    font-size: 0.8rem;
+  }
+
+  /* 分類標題 - 全寬 */
   .category-title-card {
-    grid-column: span 2;
+    grid-column: span 1;
     min-height: 100px;
     padding: 24px;
   }
@@ -596,23 +625,50 @@ a.bento-card:hover .card-arrow {
     font-size: 1.5rem;
   }
 
+  .category-title-card .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* 分類卡片 - 細長條形 */
   .category-card {
     grid-column: span 1;
-    min-height: 160px;
-    padding: 20px;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    min-height: auto;
+    padding: 16px 20px;
+    gap: 16px;
   }
 
   .category-icon {
     font-size: 2.5rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .category-name {
     font-size: 1.05rem;
+    margin-bottom: 4px;
   }
 
+  .category-desc {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+
+  /* 聯絡卡片 - 全寬 */
   .contact-card {
-    grid-column: span 2;
+    grid-column: span 1;
     padding: 24px;
+  }
+
+  .contact-card .section-title {
+    font-size: 1.3rem;
   }
 
   .contact-wrapper {
@@ -622,29 +678,54 @@ a.bento-card:hover .card-arrow {
 
   .contact-link {
     width: 100%;
-    max-width: 320px;
+    max-width: 100%;
     justify-content: center;
+  }
+
+  /* 箭頭在手機版保持在右側 */
+  .card-arrow {
+    align-self: center;
+    margin-top: 0;
+    margin-left: auto;
   }
 }
 
-/* ===== 極小螢幕 ===== */
+/* ===== 極小螢幕優化 ===== */
 @media (max-width: 480px) {
   .bento-container {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    padding: 20px 12px 40px;
   }
 
-  .header-card,
-  .banner-card,
-  .brand-card,
-  .category-title-card,
-  .category-card,
-  .contact-card {
-    grid-column: span 1;
+  .header-card {
+    min-height: 200px;
+    padding: 28px 20px;
   }
 
   .brand-title {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
+  }
+
+  .brand-slogan {
+    font-size: 0.85rem;
+  }
+
+  .brand-card,
+  .category-card {
+    padding: 14px 16px;
+  }
+
+  .brand-name,
+  .category-name {
+    font-size: 1rem;
+  }
+
+  .brand-desc,
+  .category-desc {
+    font-size: 0.8rem;
+  }
+
+  .brand-meta {
+    font-size: 0.75rem;
   }
 }
 
