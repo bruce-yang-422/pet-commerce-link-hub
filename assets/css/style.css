@@ -329,6 +329,11 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
+/* Logo 圖片懸停時只放大不旋轉，保持一致性 */
+.link-card:hover .link-icon.brand-logo {
+  transform: scale(1.1);
+}
+
 .brand-logo-img {
   width: 100%;
   height: 100%;
