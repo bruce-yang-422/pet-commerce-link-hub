@@ -17,3 +17,7 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Project-specific
+scripts/project_tree_generator.py
+project_structure.txt
