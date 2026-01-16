@@ -3,39 +3,266 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pet Commerce Link Hub</title>
+    <title>寵物生活用品館 | 飼料・用品嚴選</title>
+    <meta name="description" content="多品牌寵物用品專業導購平台，提供法國皇家、法米納等優質品牌" />
     <link rel="icon" href="./assets/favicon.ico" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <main class="bio">
-      <section class="bio-card">
-        <header class="bio-header">
-          <div class="avatar" aria-hidden="true"></div>
-          <h1>寵物生活用品館｜飼料・用品嚴選</h1>
-          <p>多品牌、多賣場入口整合導流。</p>
+    <div class="background-gradient"></div>
+    
+    <main class="bio-container">
+      <div class="bio-card">
+        <!-- 品牌 Logo 與標語 -->
+        <header class="brand-header">
+          <div class="brand-logo">
+            <div class="logo-placeholder">
+              <svg class="paw-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <ellipse cx="8.5" cy="9" rx="2.5" ry="3"/>
+                <ellipse cx="15.5" cy="9" rx="2.5" ry="3"/>
+                <ellipse cx="5" cy="13.5" rx="2" ry="2.5"/>
+                <ellipse cx="19" cy="13.5" rx="2" ry="2.5"/>
+                <path d="M12 16c-2.5 0-4.5 1.5-5 3.5-.2.8.3 1.5 1.1 1.5h7.8c.8 0 1.3-.7 1.1-1.5-.5-2-2.5-3.5-5-3.5z"/>
+              </svg>
+              <span class="logo-text">LOGO</span>
+            </div>
+          </div>
+          <h1 class="brand-title">寵物生活用品館</h1>
+          <p class="brand-slogan">飼料・用品嚴選｜多品牌專業導流</p>
         </header>
 
-        <nav class="bio-links" aria-label="主要連結">
-          <a class="link-card" href="tel:0229085835">
-            <span class="link-icon phone" aria-hidden="true">☎</span>
-            <span class="link-text">02-2908-5835</span>
-          </a>
-          <a class="link-card" href="mailto:shulin677@gmail.com">
-            <span class="link-icon mail" aria-hidden="true">✉</span>
-            <span class="link-text">shulin677@gmail.com</span>
-          </a>
-          <a class="link-card" href="#" aria-disabled="true">
-            <span class="link-icon brand" aria-hidden="true">RC</span>
-            <span class="link-text">Royal Canin 法國皇家</span>
-          </a>
-          <a class="link-card" href="#" aria-disabled="true">
-            <span class="link-icon brand" aria-hidden="true">FM</span>
-            <span class="link-text">Farmina 法米納</span>
-          </a>
-        </nav>
-      </section>
+        <!-- 活動 Banner 輪播 -->
+        <section class="banner-section" aria-label="活動推廣">
+          <div class="banner-carousel">
+            <div class="banner-track">
+              <div class="banner-slide">
+                <div class="banner-content">
+                  <h3>新春優惠</h3>
+                  <p>精選商品限時特價中</p>
+                </div>
+              </div>
+              <div class="banner-slide">
+                <div class="banner-content">
+                  <h3>會員專屬</h3>
+                  <p>加入會員享更多優惠</p>
+                </div>
+              </div>
+              <div class="banner-slide">
+                <div class="banner-content">
+                  <h3>免運活動</h3>
+                  <p>全館滿額即享免運費</p>
+                </div>
+              </div>
+            </div>
+            <button class="banner-nav prev" aria-label="上一張">‹</button>
+            <button class="banner-nav next" aria-label="下一張">›</button>
+            <div class="banner-dots">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+            </div>
+          </div>
+        </section>
 
+        <!-- 超連結卡片（品牌賣場） -->
+        <section class="links-section">
+          <h2 class="section-title">品牌賣場</h2>
+          <nav class="brand-links" aria-label="品牌連結">
+            <a class="link-card brand" href="#" data-brand="royal-canin">
+              <div class="link-icon brand-rc">
+                <span>RC</span>
+              </div>
+              <div class="link-content">
+                <span class="link-text">Royal Canin 法國皇家</span>
+                <span class="link-meta">專業寵物營養</span>
+              </div>
+              <div class="link-arrow">→</div>
+            </a>
+
+            <a class="link-card brand" href="#" data-brand="farmina">
+              <div class="link-icon brand-fm">
+                <span>FM</span>
+              </div>
+              <div class="link-content">
+                <span class="link-text">Farmina 法米納</span>
+                <span class="link-meta">天然無穀配方</span>
+              </div>
+              <div class="link-arrow">→</div>
+            </a>
+
+            <a class="link-card brand" href="#" data-brand="catidea">
+              <div class="link-icon brand-catidea">
+                <span>優格</span>
+              </div>
+              <div class="link-content">
+                <span class="link-text">Catidea 優格</span>
+                <span class="link-meta">貓咪營養專家</span>
+              </div>
+              <div class="link-arrow">→</div>
+            </a>
+
+            <a class="link-card brand" href="#" data-brand="ciao">
+              <div class="link-icon brand-ciao">
+                <span>CIAO</span>
+              </div>
+              <div class="link-content">
+                <span class="link-text">CIAO 日本啾嚕</span>
+                <span class="link-meta">日本人氣零食</span>
+              </div>
+              <div class="link-arrow">→</div>
+            </a>
+          </nav>
+
+          <h2 class="section-title section-category">商品分類</h2>
+          <nav class="category-links" aria-label="分類連結">
+            <a class="link-card category" href="#" data-category="cat-dry">
+              <div class="link-icon cat-dry">
+                <span>🐱</span>
+              </div>
+              <div class="link-content">
+                <span class="link-text">貓乾糧</span>
+                <span class="link-meta">貓主食乾糧專區</span>
+              </div>
+              <div class="link-arrow">→</div>
+            </a>
+
+            <a class="link-card category" href="#" data-category="dog-dry">
+              <div class="link-icon dog-dry">
+                <span>🐶</span>
+              </div>
+              <div class="link-content">
+                <span class="link-text">狗乾糧</span>
+                <span class="link-meta">犬主食乾糧專區</span>
+              </div>
+              <div class="link-arrow">→</div>
+            </a>
+
+            <a class="link-card category" href="#" data-category="cat-wet">
+              <div class="link-icon cat-wet">
+                <span>🐱</span>
+              </div>
+              <div class="link-content">
+                <span class="link-text">貓濕糧</span>
+                <span class="link-meta">貓罐頭・鮮食包</span>
+              </div>
+              <div class="link-arrow">→</div>
+            </a>
+
+            <a class="link-card category" href="#" data-category="dog-wet">
+              <div class="link-icon dog-wet">
+                <span>🐶</span>
+              </div>
+              <div class="link-content">
+                <span class="link-text">狗濕糧</span>
+                <span class="link-meta">犬罐頭・鮮食包</span>
+              </div>
+              <div class="link-arrow">→</div>
+            </a>
+
+            <a class="link-card category" href="#" data-category="treats">
+              <div class="link-icon treats">
+                <span>🦴</span>
+              </div>
+              <div class="link-content">
+                <span class="link-text">零食專區</span>
+                <span class="link-meta">肉泥・肉條・潔牙骨</span>
+              </div>
+              <div class="link-arrow">→</div>
+            </a>
+
+            <a class="link-card category" href="#" data-category="health">
+              <div class="link-icon health">
+                <span>💊</span>
+              </div>
+              <div class="link-content">
+                <span class="link-text">保健品</span>
+                <span class="link-meta">營養保健・關節照護</span>
+              </div>
+              <div class="link-arrow">→</div>
+            </a>
+          </nav>
+        </section>
+
+        <!-- 聯絡方式 -->
+        <footer class="contact-section">
+          <h2 class="section-title">聯絡我們</h2>
+          <div class="contact-wrapper">
+            <a class="contact-link line-link" href="https://lin.ee/j7DStzd" target="_blank" rel="noopener noreferrer">
+              <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" class="line-badge">
+            </a>
+            <a class="contact-link email-link" href="mailto:shulin677@gmail.com">
+              <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span class="contact-text">shulin677@gmail.com</span>
+            </a>
+          </div>
+        </footer>
+      </div>
     </main>
+
+    <!-- Banner 輪播控制腳本 -->
+    <script>
+      const track = document.querySelector('.banner-track');
+      const slides = document.querySelectorAll('.banner-slide');
+      const dots = document.querySelectorAll('.dot');
+      const prevBtn = document.querySelector('.banner-nav.prev');
+      const nextBtn = document.querySelector('.banner-nav.next');
+      
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+      
+      function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+      }
+      
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      }
+      
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      }
+      
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+      
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          currentIndex = parseInt(dot.dataset.index);
+          updateCarousel();
+        });
+      });
+      
+      // 自動輪播
+      let autoPlay = setInterval(nextSlide, 5000);
+      
+      // 懸停時暫停自動輪播
+      const carousel = document.querySelector('.banner-carousel');
+      carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+      carousel.addEventListener('mouseleave', () => {
+        autoPlay = setInterval(nextSlide, 5000);
+      });
+      
+      // 觸控滑動支援
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+      
+      carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) nextSlide();
+        if (touchEndX - touchStartX > 50) prevSlide();
+      });
+    </script>
   </body>
 </html>
