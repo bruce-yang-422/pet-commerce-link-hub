@@ -425,47 +425,58 @@ a.bento-card:hover {
   background: linear-gradient(135deg, rgba(194, 233, 251, 0.15) 0%, rgba(161, 196, 253, 0.15) 100%);
 }
 
-/* ===== Contact Card - 聯絡卡片 ===== */
-.contact-card {
-  grid-column: span 4;
-  min-height: 160px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+/* ===== Site Footer - 網站頁尾 ===== */
+.site-footer {
+  width: 100%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin-top: 60px;
+  padding: 48px 20px 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.contact-card .section-title {
+.footer-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: #1d1d1f;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
-.contact-wrapper {
+.footer-links {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 32px;
 }
 
-.contact-link {
-  display: flex;
+.footer-link {
+  display: inline-flex;
   align-items: center;
   gap: 12px;
   padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   text-decoration: none;
   color: #1d1d1f;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-.contact-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+.footer-link:hover {
   background: rgba(255, 255, 255, 1);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
 .line-badge {
@@ -473,14 +484,22 @@ a.bento-card:hover {
   width: auto;
 }
 
-.contact-icon {
-  width: 24px;
-  height: 24px;
+.footer-icon {
+  width: 22px;
+  height: 22px;
 }
 
-.contact-text {
+.footer-text {
   font-size: 0.95rem;
   font-weight: 500;
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  color: #86868b;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* ===== Card Arrow - 卡片箭頭 ===== */
@@ -514,10 +533,6 @@ a.bento-card:hover .card-arrow {
   }
 
   .category-title-card {
-    grid-column: span 3;
-  }
-
-  .contact-card {
     grid-column: span 3;
   }
 
@@ -661,32 +676,39 @@ a.bento-card:hover .card-arrow {
     margin-bottom: 0;
   }
 
-  /* 聯絡卡片 - 全寬 */
-  .contact-card {
-    grid-column: span 1;
-    padding: 24px;
-  }
-
-  .contact-card .section-title {
-    font-size: 1.3rem;
-  }
-
-  .contact-wrapper {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .contact-link {
-    width: 100%;
-    max-width: 100%;
-    justify-content: center;
-  }
-
   /* 箭頭在手機版保持在右側 */
   .card-arrow {
     align-self: center;
     margin-top: 0;
     margin-left: auto;
+  }
+
+  /* 頁尾響應式 */
+  .site-footer {
+    padding: 36px 16px 24px;
+    margin-top: 40px;
+  }
+
+  .footer-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-link {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  .footer-copyright {
+    font-size: 0.85rem;
+    margin-top: 20px;
+    padding-top: 20px;
   }
 }
 
