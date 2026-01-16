@@ -183,6 +183,9 @@ body {
   min-width: 100%;
   aspect-ratio: 16 / 7;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,12 +193,57 @@ body {
   overflow: hidden;
 }
 
+/* 預設漸層背景（如果沒有上傳圖片則顯示） */
 .banner-slide:nth-child(2) {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
 .banner-slide:nth-child(3) {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* PC 版 Banner 背景圖片（桌面：1200x400px） */
+.banner-slide[data-banner="1"] {
+  background-image: 
+    linear-gradient(rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3)),
+    url('../images/banners/banner-1-desktop.jpg');
+}
+
+.banner-slide[data-banner="2"] {
+  background-image: 
+    linear-gradient(rgba(240, 147, 251, 0.3), rgba(245, 87, 108, 0.3)),
+    url('../images/banners/banner-2-desktop.jpg');
+}
+
+.banner-slide[data-banner="3"] {
+  background-image: 
+    linear-gradient(rgba(79, 172, 254, 0.3), rgba(0, 242, 254, 0.3)),
+    url('../images/banners/banner-3-desktop.jpg');
+}
+
+/* 手機版 Banner 背景圖片（行動裝置：800x600px） */
+@media (max-width: 768px) {
+  .banner-slide {
+    aspect-ratio: 4 / 3;
+  }
+
+  .banner-slide[data-banner="1"] {
+    background-image: 
+      linear-gradient(rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3)),
+      url('../images/banners/banner-1-mobile.jpg');
+  }
+
+  .banner-slide[data-banner="2"] {
+    background-image: 
+      linear-gradient(rgba(240, 147, 251, 0.3), rgba(245, 87, 108, 0.3)),
+      url('../images/banners/banner-2-mobile.jpg');
+  }
+
+  .banner-slide[data-banner="3"] {
+    background-image: 
+      linear-gradient(rgba(79, 172, 254, 0.3), rgba(0, 242, 254, 0.3)),
+      url('../images/banners/banner-3-mobile.jpg');
+  }
 }
 
 .banner-content {
