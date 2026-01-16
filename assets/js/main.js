@@ -177,13 +177,12 @@ function initScrollAnimations() {
 
 /**
  * 初始化視差滾動效果
- * 為背景和主卡片加入微妙的視差移動
+ * 為主卡片加入微妙的視差移動（移除背景視差避免滑走）
  */
 function initParallaxEffect() {
-  const background = document.querySelector('.background-gradient');
   const bioCard = document.querySelector('.bio-card');
   
-  if (!background || !bioCard) return;
+  if (!bioCard) return;
   
   // 節流函數，避免過度觸發
   let ticking = false;
@@ -191,11 +190,10 @@ function initParallaxEffect() {
   function updateParallax() {
     const scrolled = window.pageYOffset;
     
-    // 背景視差效果（較慢移動）
-    background.style.transform = `translateY(${scrolled * 0.3}px)`;
-    
-    // 主卡片輕微視差
-    bioCard.style.transform = `translateY(${scrolled * -0.05}px)`;
+    // 主卡片輕微視差（非常微妙的效果）
+    if (scrolled < 500) { // 只在前 500px 有效果
+      bioCard.style.transform = `translateY(${scrolled * -0.02}px)`;
+    }
     
     ticking = false;
   }
