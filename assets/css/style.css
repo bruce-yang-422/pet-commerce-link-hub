@@ -458,6 +458,17 @@ a.bento-card:hover {
   margin-bottom: 28px;
 }
 
+.line-official-btn {
+  height: 36px;
+  width: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.line-official-btn:hover {
+  opacity: 0.8;
+}
+
 .footer-link {
   color: #1d1d1f;
   text-decoration: none;
@@ -678,11 +689,15 @@ a.bento-card:hover .card-arrow {
 
   .footer-contact {
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
   }
 
   .footer-divider {
     display: none;
+  }
+
+  .line-official-btn {
+    height: 40px;
   }
 
   .footer-link {
