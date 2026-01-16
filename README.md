@@ -413,10 +413,6 @@ A: 複製任一 `.link-card` 區塊，修改內容、連結與樣式類別即可
 
 MIT License - 自由使用、修改、分發
 
-## 🤝 貢獻
-
-歡迎提交 Issue 或 Pull Request 改進本專案。
-
 ---
 
 Made with ❤️ for Pet Lovers
