@@ -42,10 +42,13 @@ pet-commerce-link-hub/
 ├── assets/                 # 靜態資源
 │   ├── css/
 │   │   └── style.css      # 主樣式表
-│   ├── favicon.ico        # 網站圖標
-│   └── images/            # 圖片資源（預留）
-│       ├── brand/         # 品牌 Logo（可選）
-│       └── icon/          # 圖示（可選）
+│   ├── js/
+│   │   └── main.js        # JavaScript 主檔案（Banner 輪播）
+│   ├── images/
+│   │   ├── logos/         # 品牌 Logo
+│   │   ├── brand/         # 其他品牌圖（預留）
+│   │   └── icon/          # 圖示（預留）
+│   └── favicon.ico        # 網站圖標
 ├── README.md              # 專案說明
 └── .gitignore             # Git 忽略設定
 ```

@@ -202,67 +202,7 @@
       </div>
     </main>
 
-    <!-- Banner 輪播控制腳本 -->
-    <script>
-      const track = document.querySelector('.banner-track');
-      const slides = document.querySelectorAll('.banner-slide');
-      const dots = document.querySelectorAll('.dot');
-      const prevBtn = document.querySelector('.banner-nav.prev');
-      const nextBtn = document.querySelector('.banner-nav.next');
-      
-      let currentIndex = 0;
-      const totalSlides = slides.length;
-      
-      function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === currentIndex);
-        });
-      }
-      
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateCarousel();
-      }
-      
-      function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-      }
-      
-      nextBtn.addEventListener('click', nextSlide);
-      prevBtn.addEventListener('click', prevSlide);
-      
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          currentIndex = parseInt(dot.dataset.index);
-          updateCarousel();
-        });
-      });
-      
-      // 自動輪播
-      let autoPlay = setInterval(nextSlide, 5000);
-      
-      // 懸停時暫停自動輪播
-      const carousel = document.querySelector('.banner-carousel');
-      carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
-      carousel.addEventListener('mouseleave', () => {
-        autoPlay = setInterval(nextSlide, 5000);
-      });
-      
-      // 觸控滑動支援
-      let touchStartX = 0;
-      let touchEndX = 0;
-      
-      carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      });
-      
-      carousel.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 50) nextSlide();
-        if (touchEndX - touchStartX > 50) prevSlide();
-      });
-    </script>
+    <!-- JavaScript -->
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>
