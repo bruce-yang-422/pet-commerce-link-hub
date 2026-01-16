@@ -8,53 +8,103 @@ body {
   margin: 0;
   font-family: "Segoe UI", "Noto Sans TC", system-ui, sans-serif;
   color: #1f2933;
-  background: #f7f9fb;
+  background: linear-gradient(120deg, #f2f4f8 0%, #f9fbfd 35%, #f2efe9 100%);
+  min-height: 100vh;
 }
 
-.container {
-  max-width: 900px;
+.bio {
+  max-width: 520px;
   margin: 0 auto;
-  padding: 48px 20px 80px;
+  padding: 56px 20px 72px;
+  text-align: center;
 }
 
-.hero {
-  padding: 32px;
+.bio-card {
   background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(31, 41, 51, 0.08);
+  border-radius: 24px;
+  padding: 32px 28px 28px;
+  box-shadow: 0 18px 40px rgba(60, 66, 87, 0.15);
 }
 
-.hero h1 {
-  margin: 0 0 12px;
-  font-size: 32px;
+.bio-header h1 {
+  margin: 18px 0 8px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-.hero p {
+.bio-header p {
   margin: 0;
-  font-size: 18px;
   color: #52606d;
 }
 
-.section {
+.avatar {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 12px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #f7d9d9 40%, #f0a7a7 100%);
+  border: 6px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(60, 66, 87, 0.18);
+}
+
+.bio-links {
   margin-top: 28px;
-  padding: 24px 28px;
+  display: grid;
+  gap: 16px;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 16px;
   background: #ffffff;
-  border-radius: 12px;
+  text-decoration: none;
+  color: #1f2933;
   border: 1px solid #e4e7eb;
+  box-shadow: 0 8px 16px rgba(60, 66, 87, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.section h2 {
-  margin-top: 0;
-  font-size: 20px;
+.link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(60, 66, 87, 0.18);
 }
 
-.note {
-  border-left: 6px solid #f5a524;
+.link-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
-code {
-  padding: 2px 6px;
-  background: #f0f4f8;
-  border-radius: 6px;
-  font-family: "Cascadia Mono", "Fira Code", monospace;
+.link-icon.phone {
+  background: #22c55e;
+}
+
+.link-icon.mail {
+  background: #3b82f6;
+}
+
+.link-icon.brand {
+  background: #ef4444;
+  font-size: 14px;
+}
+
+.link-text {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.bio-footer {
+  margin-top: 18px;
+  font-size: 12px;
+  color: #9aa5b1;
 }
