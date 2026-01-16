@@ -5,10 +5,32 @@
 
 // 等待 DOM 載入完成
 document.addEventListener('DOMContentLoaded', function() {
-  initBannerCarousel();
-  initScrollAnimations();
-  initParallaxEffect();
+  // 根據配置決定是否啟用功能
+  if (CONFIG.banner.enabled) {
+    initBannerCarousel();
+  } else {
+    hideBanner();
+  }
+  
+  if (CONFIG.scrollAnimation.enabled) {
+    initScrollAnimations();
+  }
+  
+  if (CONFIG.parallax.enabled) {
+    initParallaxEffect();
+  }
 });
+
+/**
+ * 隱藏 Banner 區塊
+ */
+function hideBanner() {
+  const bannerSection = document.querySelector('.banner-section');
+  if (bannerSection) {
+    bannerSection.style.display = 'none';
+    console.log('Banner is disabled via config');
+  }
+}
 
 /**
  * 初始化 Banner 輪播功能
@@ -61,8 +83,9 @@ function initBannerCarousel() {
    * 開始自動輪播
    */
   function startAutoPlay() {
+    if (!CONFIG.banner.autoPlay) return; // 如果配置關閉自動輪播，直接返回
     stopAutoPlay(); // 清除現有的計時器
-    autoPlayInterval = setInterval(nextSlide, 5000);
+    autoPlayInterval = setInterval(nextSlide, CONFIG.banner.autoPlayInterval);
   }
   
   /**
@@ -92,9 +115,11 @@ function initBannerCarousel() {
     });
   });
   
-  // 懸停時暫停/恢復自動輪播
-  carousel.addEventListener('mouseenter', stopAutoPlay);
-  carousel.addEventListener('mouseleave', startAutoPlay);
+  // 懸停時暫停/恢復自動輪播（根據配置）
+  if (CONFIG.banner.pauseOnHover && CONFIG.banner.autoPlay) {
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+  }
   
   // 觸控滑動支援
   let touchStartX = 0;
@@ -127,11 +152,11 @@ function initBannerCarousel() {
  * 使用 Intersection Observer API 偵測元素進入視口
  */
 function initScrollAnimations() {
-  // 滾動動畫配置 - 更早觸發
+  // 滾動動畫配置 - 從 CONFIG 讀取
   const observerOptions = {
     root: null, // 使用視口作為根元素
-    rootMargin: '0px 0px -50px 0px', // 減少邊距，更早觸發
-    threshold: 0.1 // 元素顯示 10% 時觸發
+    rootMargin: CONFIG.scrollAnimation.rootMargin,
+    threshold: CONFIG.scrollAnimation.threshold
   };
 
   // 建立 Intersection Observer
