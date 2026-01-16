@@ -177,33 +177,9 @@ function initScrollAnimations() {
 
 /**
  * 初始化視差滾動效果
- * 為主卡片加入微妙的視差移動（移除背景視差避免滑走）
+ * 暫時停用以確保背景穩定性
  */
 function initParallaxEffect() {
-  const bioCard = document.querySelector('.bio-card');
-  
-  if (!bioCard) return;
-  
-  // 節流函數，避免過度觸發
-  let ticking = false;
-  
-  function updateParallax() {
-    const scrolled = window.pageYOffset;
-    
-    // 主卡片輕微視差（非常微妙的效果）
-    if (scrolled < 500) { // 只在前 500px 有效果
-      bioCard.style.transform = `translateY(${scrolled * -0.02}px)`;
-    }
-    
-    ticking = false;
-  }
-  
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateParallax();
-      });
-      ticking = true;
-    }
-  });
+  // 暫時停用視差效果，確保背景不會滑走
+  // 如果需要可以之後重新啟用
 }
