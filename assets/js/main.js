@@ -22,13 +22,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * 隱藏 Banner 區塊
+ * 完全移除 Banner 區塊
+ * 讓它就像從未存在一樣
  */
 function hideBanner() {
   const bannerSection = document.querySelector('.banner-section');
   if (bannerSection) {
-    bannerSection.style.display = 'none';
-    console.log('Banner is disabled via config');
+    // 完全移除 DOM 元素
+    bannerSection.remove();
+    console.log('Banner removed: disabled via config');
   }
 }
 
@@ -185,11 +187,13 @@ function initScrollAnimations() {
     observer.observe(card);
   });
 
-  // Banner 也加入滾動動畫
-  const banner = document.querySelector('.banner-section');
-  if (banner) {
-    banner.classList.add('animate-on-scroll');
-    observer.observe(banner);
+  // Banner 也加入滾動動畫（只有在啟用時才處理）
+  if (CONFIG.banner.enabled) {
+    const banner = document.querySelector('.banner-section');
+    if (banner) {
+      banner.classList.add('animate-on-scroll');
+      observer.observe(banner);
+    }
   }
 
   // 聯絡區塊加入動畫
