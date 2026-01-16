@@ -127,11 +127,11 @@ function initBannerCarousel() {
  * 使用 Intersection Observer API 偵測元素進入視口
  */
 function initScrollAnimations() {
-  // 滾動動畫配置
+  // 滾動動畫配置 - 更早觸發
   const observerOptions = {
     root: null, // 使用視口作為根元素
-    rootMargin: '0px 0px -100px 0px', // 提前觸發動畫
-    threshold: 0.15 // 元素顯示 15% 時觸發
+    rootMargin: '0px 0px -50px 0px', // 減少邊距，更早觸發
+    threshold: 0.1 // 元素顯示 10% 時觸發
   };
 
   // 建立 Intersection Observer
@@ -152,11 +152,11 @@ function initScrollAnimations() {
     observer.observe(element);
   });
 
-  // 為連結卡片加入序列動畫
+  // 為連結卡片加入序列動畫（快速連續）
   const linkCards = document.querySelectorAll('.link-card');
   linkCards.forEach((card, index) => {
     card.classList.add('animate-on-scroll');
-    card.style.transitionDelay = `${index * 0.1}s`; // 依序延遲動畫
+    card.style.transitionDelay = `${index * 0.05}s`; // 減少延遲時間，更快速
     observer.observe(card);
   });
 
