@@ -1,11 +1,13 @@
 /**
  * Pet Commerce Link Hub - Main JavaScript
- * Banner carousel functionality
+ * Banner carousel functionality & Scroll animations
  */
 
 // 等待 DOM 載入完成
 document.addEventListener('DOMContentLoaded', function() {
   initBannerCarousel();
+  initScrollAnimations();
+  initParallaxEffect();
 });
 
 /**
@@ -118,4 +120,92 @@ function initBannerCarousel() {
   
   // 啟動自動輪播
   startAutoPlay();
+}
+
+/**
+ * 初始化滾動動畫
+ * 使用 Intersection Observer API 偵測元素進入視口
+ */
+function initScrollAnimations() {
+  // 滾動動畫配置
+  const observerOptions = {
+    root: null, // 使用視口作為根元素
+    rootMargin: '0px 0px -100px 0px', // 提前觸發動畫
+    threshold: 0.15 // 元素顯示 15% 時觸發
+  };
+
+  // 建立 Intersection Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // 元素進入視口，加入動畫類別
+        entry.target.classList.add('is-visible');
+        // 可選：觀察一次後就停止觀察（提升效能）
+        // observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // 為需要動畫的元素加入觀察
+  const animatedElements = document.querySelectorAll('.animate-on-scroll');
+  animatedElements.forEach((element) => {
+    observer.observe(element);
+  });
+
+  // 為連結卡片加入序列動畫
+  const linkCards = document.querySelectorAll('.link-card');
+  linkCards.forEach((card, index) => {
+    card.classList.add('animate-on-scroll');
+    card.style.transitionDelay = `${index * 0.1}s`; // 依序延遲動畫
+    observer.observe(card);
+  });
+
+  // Banner 也加入滾動動畫
+  const banner = document.querySelector('.banner-section');
+  if (banner) {
+    banner.classList.add('animate-on-scroll');
+    observer.observe(banner);
+  }
+
+  // 聯絡區塊加入動畫
+  const contactSection = document.querySelector('.contact-section');
+  if (contactSection) {
+    contactSection.classList.add('animate-on-scroll');
+    observer.observe(contactSection);
+  }
+}
+
+/**
+ * 初始化視差滾動效果
+ * 為背景和主卡片加入微妙的視差移動
+ */
+function initParallaxEffect() {
+  const background = document.querySelector('.background-gradient');
+  const bioCard = document.querySelector('.bio-card');
+  
+  if (!background || !bioCard) return;
+  
+  // 節流函數，避免過度觸發
+  let ticking = false;
+  
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    
+    // 背景視差效果（較慢移動）
+    background.style.transform = `translateY(${scrolled * 0.3}px)`;
+    
+    // 主卡片輕微視差
+    bioCard.style.transform = `translateY(${scrolled * -0.05}px)`;
+    
+    ticking = false;
+  }
+  
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateParallax();
+      });
+      ticking = true;
+    }
+  });
 }

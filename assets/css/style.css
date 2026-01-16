@@ -81,6 +81,18 @@ body {
   text-align: center;
   padding-bottom: 40px;
   margin-bottom: 40px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .brand-logo {
@@ -655,6 +667,37 @@ body {
   }
 }
 
+/* ===== 滾動觸發動畫 ===== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Banner 特殊動畫：從側邊滑入 */
+.banner-section.animate-on-scroll {
+  transform: translateX(-30px);
+}
+
+.banner-section.animate-on-scroll.is-visible {
+  transform: translateX(0);
+}
+
+/* 聯絡區塊：從下方滑入 */
+.contact-section.animate-on-scroll {
+  transform: translateY(30px) scale(0.98);
+}
+
+.contact-section.animate-on-scroll.is-visible {
+  transform: translateY(0) scale(1);
+}
+
 /* ===== 輔助動畫 ===== */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -663,5 +706,12 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  
+  /* 關閉滾動動畫 */
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
