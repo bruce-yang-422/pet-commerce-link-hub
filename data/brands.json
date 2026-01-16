@@ -1,0 +1,14 @@
+{
+  "updated_at": "2026-01-16",
+  "brands": [
+    {
+      "name": "示例品牌",
+      "links": [
+        {
+          "platform": "官方網站",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  ]
+}

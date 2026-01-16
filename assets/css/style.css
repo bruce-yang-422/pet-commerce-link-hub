@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Noto Sans TC", system-ui, sans-serif;
+  color: #1f2933;
+  background: #f7f9fb;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+.hero {
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(31, 41, 51, 0.08);
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: 32px;
+}
+
+.hero p {
+  margin: 0;
+  font-size: 18px;
+  color: #52606d;
+}
+
+.section {
+  margin-top: 28px;
+  padding: 24px 28px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e4e7eb;
+}
+
+.section h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.note {
+  border-left: 6px solid #f5a524;
+}
+
+code {
+  padding: 2px 6px;
+  background: #f0f4f8;
+  border-radius: 6px;
+  font-family: "Cascadia Mono", "Fira Code", monospace;
+}
