@@ -11,194 +11,168 @@
   <body>
     <div class="background-gradient"></div>
     
-    <main class="bio-container">
-      <div class="bio-card">
-        <!-- 品牌 Logo 與標語 -->
-        <header class="brand-header">
-          <div class="brand-logo">
-            <div class="logo-placeholder">
-              <svg class="paw-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <ellipse cx="8.5" cy="9" rx="2.5" ry="3"/>
-                <ellipse cx="15.5" cy="9" rx="2.5" ry="3"/>
-                <ellipse cx="5" cy="13.5" rx="2" ry="2.5"/>
-                <ellipse cx="19" cy="13.5" rx="2" ry="2.5"/>
-                <path d="M12 16c-2.5 0-4.5 1.5-5 3.5-.2.8.3 1.5 1.1 1.5h7.8c.8 0 1.3-.7 1.1-1.5-.5-2-2.5-3.5-5-3.5z"/>
-              </svg>
-              <span class="logo-text">LOGO</span>
-            </div>
-          </div>
-          <h1 class="brand-title">寵物生活用品館</h1>
-          <p class="brand-slogan">飼料・用品嚴選｜多品牌專業導流</p>
-        </header>
+    <main class="bento-container">
+      <!-- Header Card - 品牌標題 -->
+      <div class="bento-card header-card">
+        <div class="logo-placeholder">
+          <svg class="paw-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <ellipse cx="8.5" cy="9" rx="2.5" ry="3"/>
+            <ellipse cx="15.5" cy="9" rx="2.5" ry="3"/>
+            <ellipse cx="5" cy="13.5" rx="2" ry="2.5"/>
+            <ellipse cx="19" cy="13.5" rx="2" ry="2.5"/>
+            <path d="M12 16c-2.5 0-4.5 1.5-5 3.5-.2.8.3 1.5 1.1 1.5h7.8c.8 0 1.3-.7 1.1-1.5-.5-2-2.5-3.5-5-3.5z"/>
+          </svg>
+        </div>
+        <h1 class="brand-title">寵物生活用品館</h1>
+        <p class="brand-slogan">飼料・用品嚴選｜多品牌專業導流</p>
+      </div>
 
-        <!-- 活動 Banner 輪播 -->
-        <section class="banner-section" aria-label="活動推廣">
-          <div class="banner-carousel">
-            <div class="banner-track">
-              <div class="banner-slide" data-banner="1">
-                <div class="banner-content">
-                  <h3>新春優惠</h3>
-                  <p>精選商品限時特價中</p>
-                </div>
-              </div>
-              <div class="banner-slide" data-banner="2">
-                <div class="banner-content">
-                  <h3>會員專屬</h3>
-                  <p>加入會員享更多優惠</p>
-                </div>
-              </div>
-              <div class="banner-slide" data-banner="3">
-                <div class="banner-content">
-                  <h3>免運活動</h3>
-                  <p>全館滿額即享免運費</p>
-                </div>
+      <!-- Banner Card - 活動輪播 -->
+      <div class="bento-card banner-card">
+        <div class="banner-carousel">
+          <div class="banner-track">
+            <div class="banner-slide" data-banner="1">
+              <div class="banner-content">
+                <h3>新春優惠</h3>
+                <p>精選商品限時特價中</p>
               </div>
             </div>
-            <button class="banner-nav prev" aria-label="上一張">‹</button>
-            <button class="banner-nav next" aria-label="下一張">›</button>
-            <div class="banner-dots">
-              <span class="dot active" data-index="0"></span>
-              <span class="dot" data-index="1"></span>
-              <span class="dot" data-index="2"></span>
+            <div class="banner-slide" data-banner="2">
+              <div class="banner-content">
+                <h3>會員專屬</h3>
+                <p>加入會員享更多優惠</p>
+              </div>
+            </div>
+            <div class="banner-slide" data-banner="3">
+              <div class="banner-content">
+                <h3>免運活動</h3>
+                <p>全館滿額即享免運費</p>
+              </div>
             </div>
           </div>
-        </section>
-
-        <!-- 超連結卡片（品牌賣場） -->
-        <section class="links-section">
-          <h2 class="section-title">品牌賣場</h2>
-          <nav class="brand-links" aria-label="品牌連結">
-            <a class="link-card brand" href="https://myship.7-11.com.tw/general/detail/GM2601152093973" data-brand="royal-canin" target="_blank" rel="noopener noreferrer">
-              <div class="link-icon brand-logo">
-                <img src="./assets/images/logos/royal-canin.png" alt="Royal Canin Logo" class="brand-logo-img">
-              </div>
-              <div class="link-content">
-                <span class="link-text">Royal Canin 法國皇家</span>
-                <span class="link-meta">專業寵物營養</span>
-              </div>
-              <div class="link-arrow">→</div>
-            </a>
-
-            <a class="link-card brand" href="https://myship.7-11.com.tw/general/detail/GM2601152097373" data-brand="farmina" target="_blank" rel="noopener noreferrer">
-              <div class="link-icon brand-logo">
-                <img src="./assets/images/logos/farmina.png" alt="Farmina Logo" class="brand-logo-img">
-              </div>
-              <div class="link-content">
-                <span class="link-text">Farmina 法米納</span>
-                <span class="link-meta">天然無穀配方</span>
-              </div>
-              <div class="link-arrow">→</div>
-            </a>
-
-            <a class="link-card brand" href="#" data-brand="catidea">
-              <div class="link-icon brand-catidea">
-                <span>優格</span>
-              </div>
-              <div class="link-content">
-                <span class="link-text">Catidea 優格</span>
-                <span class="link-meta">貓咪營養專家</span>
-              </div>
-              <div class="link-arrow">→</div>
-            </a>
-
-            <a class="link-card brand" href="#" data-brand="ciao">
-              <div class="link-icon brand-ciao">
-                <span>CIAO</span>
-              </div>
-              <div class="link-content">
-                <span class="link-text">CIAO 日本啾嚕</span>
-                <span class="link-meta">日本人氣零食</span>
-              </div>
-              <div class="link-arrow">→</div>
-            </a>
-          </nav>
-
-          <h2 class="section-title section-category">商品分類</h2>
-          <nav class="category-links" aria-label="分類連結">
-            <a class="link-card category" href="#" data-category="cat-dry">
-              <div class="link-icon cat-dry">
-                <span>🐱</span>
-              </div>
-              <div class="link-content">
-                <span class="link-text">貓乾糧</span>
-                <span class="link-meta">貓主食乾糧專區</span>
-              </div>
-              <div class="link-arrow">→</div>
-            </a>
-
-            <a class="link-card category" href="#" data-category="dog-dry">
-              <div class="link-icon dog-dry">
-                <span>🐶</span>
-              </div>
-              <div class="link-content">
-                <span class="link-text">狗乾糧</span>
-                <span class="link-meta">犬主食乾糧專區</span>
-              </div>
-              <div class="link-arrow">→</div>
-            </a>
-
-            <a class="link-card category" href="#" data-category="cat-wet">
-              <div class="link-icon cat-wet">
-                <span>🐱</span>
-              </div>
-              <div class="link-content">
-                <span class="link-text">貓濕糧</span>
-                <span class="link-meta">貓罐頭・鮮食包</span>
-              </div>
-              <div class="link-arrow">→</div>
-            </a>
-
-            <a class="link-card category" href="#" data-category="dog-wet">
-              <div class="link-icon dog-wet">
-                <span>🐶</span>
-              </div>
-              <div class="link-content">
-                <span class="link-text">狗濕糧</span>
-                <span class="link-meta">犬罐頭・鮮食包</span>
-              </div>
-              <div class="link-arrow">→</div>
-            </a>
-
-            <a class="link-card category" href="#" data-category="treats">
-              <div class="link-icon treats">
-                <span>🦴</span>
-              </div>
-              <div class="link-content">
-                <span class="link-text">零食專區</span>
-                <span class="link-meta">肉泥・肉條・潔牙骨</span>
-              </div>
-              <div class="link-arrow">→</div>
-            </a>
-
-            <a class="link-card category" href="#" data-category="health">
-              <div class="link-icon health">
-                <span>💊</span>
-              </div>
-              <div class="link-content">
-                <span class="link-text">保健品</span>
-                <span class="link-meta">營養保健・關節照護</span>
-              </div>
-              <div class="link-arrow">→</div>
-            </a>
-          </nav>
-        </section>
-
-        <!-- 聯絡方式 -->
-        <footer class="contact-section">
-          <h2 class="section-title">聯絡我們</h2>
-          <div class="contact-wrapper">
-            <a class="contact-link line-link" href="https://lin.ee/j7DStzd" target="_blank" rel="noopener noreferrer">
-              <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" class="line-badge">
-            </a>
-            <a class="contact-link email-link" href="mailto:shulin677@gmail.com">
-              <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-              <span class="contact-text">shulin677@gmail.com</span>
-            </a>
+          <button class="banner-nav prev" aria-label="上一張">‹</button>
+          <button class="banner-nav next" aria-label="下一張">›</button>
+          <div class="banner-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
           </div>
-        </footer>
+        </div>
+      </div>
+
+      <!-- Brand Cards - 品牌區域 -->
+      <a class="bento-card brand-card royal-canin" href="https://myship.7-11.com.tw/general/detail/GM2601152093973" target="_blank" rel="noopener noreferrer">
+        <div class="brand-logo-wrapper">
+          <img src="./assets/images/logos/royal-canin.png" alt="Royal Canin Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-info">
+          <h3 class="brand-name">Royal Canin</h3>
+          <p class="brand-desc">法國皇家</p>
+          <span class="brand-meta">專業寵物營養</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="bento-card brand-card farmina" href="https://myship.7-11.com.tw/general/detail/GM2601152097373" target="_blank" rel="noopener noreferrer">
+        <div class="brand-logo-wrapper">
+          <img src="./assets/images/logos/farmina.png" alt="Farmina Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-info">
+          <h3 class="brand-name">Farmina</h3>
+          <p class="brand-desc">法米納</p>
+          <span class="brand-meta">天然無穀配方</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="bento-card brand-card catidea" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="brand-icon-wrapper">
+          <span class="brand-icon">優格</span>
+        </div>
+        <div class="brand-info">
+          <h3 class="brand-name">Catidea</h3>
+          <p class="brand-desc">優格</p>
+          <span class="brand-meta">貓咪營養專家</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="bento-card brand-card ciao" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="brand-icon-wrapper">
+          <span class="brand-icon">CIAO</span>
+        </div>
+        <div class="brand-info">
+          <h3 class="brand-name">CIAO</h3>
+          <p class="brand-desc">日本啾嚕</p>
+          <span class="brand-meta">日本人氣零食</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <!-- Category Title Card -->
+      <div class="bento-card category-title-card">
+        <h2 class="section-title">商品分類</h2>
+        <p class="section-subtitle">精選寵物用品類別</p>
+      </div>
+
+      <!-- Category Cards -->
+      <a class="bento-card category-card cat-dry" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="category-icon">🐱</div>
+        <h3 class="category-name">貓乾糧</h3>
+        <p class="category-desc">貓主食乾糧專區</p>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="bento-card category-card dog-dry" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="category-icon">🐶</div>
+        <h3 class="category-name">狗乾糧</h3>
+        <p class="category-desc">犬主食乾糧專區</p>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="bento-card category-card cat-wet" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="category-icon">🐱</div>
+        <h3 class="category-name">貓濕糧</h3>
+        <p class="category-desc">貓罐頭・鮮食包</p>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="bento-card category-card dog-wet" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="category-icon">🐶</div>
+        <h3 class="category-name">狗濕糧</h3>
+        <p class="category-desc">犬罐頭・鮮食包</p>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="bento-card category-card treats" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="category-icon">🦴</div>
+        <h3 class="category-name">零食專區</h3>
+        <p class="category-desc">肉泥・肉條・潔牙骨</p>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="bento-card category-card health" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="category-icon">💊</div>
+        <h3 class="category-name">保健品</h3>
+        <p class="category-desc">營養保健・關節照護</p>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <!-- Contact Card -->
+      <div class="bento-card contact-card">
+        <h2 class="section-title">聯絡我們</h2>
+        <div class="contact-wrapper">
+          <a class="contact-link line-link" href="https://lin.ee/j7DStzd" target="_blank" rel="noopener noreferrer">
+            <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" class="line-badge">
+          </a>
+          <a class="contact-link email-link" href="mailto:shulin677@gmail.com">
+            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span class="contact-text">shulin677@gmail.com</span>
+          </a>
+        </div>
       </div>
     </main>
 

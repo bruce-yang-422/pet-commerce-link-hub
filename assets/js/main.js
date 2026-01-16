@@ -1,36 +1,27 @@
 /**
  * Pet Commerce Link Hub - Main JavaScript
- * Banner carousel functionality & Scroll animations
+ * Bento Grid Layout with Banner Carousel
  */
 
 // 等待 DOM 載入完成
 document.addEventListener('DOMContentLoaded', function() {
-  // 根據配置決定是否啟用功能
-  if (CONFIG.banner.enabled) {
+  // 根據配置決定是否啟用 Banner
+  if (window.CONFIG && CONFIG.banner.enabled) {
     initBannerCarousel();
-  } else {
+  } else if (window.CONFIG && !CONFIG.banner.enabled) {
     hideBanner();
-  }
-  
-  if (CONFIG.scrollAnimation.enabled) {
-    initScrollAnimations();
-  }
-  
-  if (CONFIG.parallax.enabled) {
-    initParallaxEffect();
   }
 });
 
 /**
- * 完全移除 Banner 區塊
+ * 完全移除 Banner 卡片
  * 讓它就像從未存在一樣
  */
 function hideBanner() {
-  const bannerSection = document.querySelector('.banner-section');
-  if (bannerSection) {
-    // 完全移除 DOM 元素
-    bannerSection.remove();
-    console.log('Banner removed: disabled via config');
+  const bannerCard = document.querySelector('.banner-card');
+  if (bannerCard) {
+    bannerCard.remove();
+    console.log('✓ Banner removed: disabled via config');
   }
 }
 
@@ -47,13 +38,45 @@ function initBannerCarousel() {
   
   // 檢查必要元素是否存在
   if (!track || !slides.length || !carousel) {
-    console.warn('Banner carousel elements not found');
+    console.warn('⚠ Banner carousel elements not found');
     return;
   }
   
   let currentIndex = 0;
   const totalSlides = slides.length;
   let autoPlayInterval = null;
+  
+  /**
+   * 載入 Banner 圖片（桌面版與手機版）
+   */
+  function loadBannerImages() {
+    slides.forEach((slide, index) => {
+      const desktopImg = `./assets/images/banners/banner-${index + 1}-desktop.jpg`;
+      const mobileImg = `./assets/images/banners/banner-${index + 1}-mobile.jpg`;
+      
+      // 預載入圖片
+      const img = new Image();
+      img.onload = () => {
+        const updateBackground = () => {
+          if (window.innerWidth > 768) {
+            slide.style.backgroundImage = `url(${desktopImg})`;
+          } else {
+            slide.style.backgroundImage = `url(${mobileImg})`;
+          }
+        };
+        
+        updateBackground();
+        window.addEventListener('resize', updateBackground);
+      };
+      
+      img.onerror = () => {
+        console.warn(`⚠ Failed to load banner image ${index + 1}`);
+      };
+      
+      // 開始載入
+      img.src = window.innerWidth > 768 ? desktopImg : mobileImg;
+    });
+  }
   
   /**
    * 更新輪播顯示
@@ -85,9 +108,9 @@ function initBannerCarousel() {
    * 開始自動輪播
    */
   function startAutoPlay() {
-    if (!CONFIG.banner.autoPlay) return; // 如果配置關閉自動輪播，直接返回
-    stopAutoPlay(); // 清除現有的計時器
-    autoPlayInterval = setInterval(nextSlide, CONFIG.banner.autoPlayInterval);
+    if (!window.CONFIG || !CONFIG.banner.autoPlay) return;
+    stopAutoPlay();
+    autoPlayInterval = setInterval(nextSlide, CONFIG.banner.autoPlayInterval || 5000);
   }
   
   /**
@@ -102,11 +125,23 @@ function initBannerCarousel() {
   
   // 綁定導航按鈕事件
   if (nextBtn) {
-    nextBtn.addEventListener('click', nextSlide);
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      // 手動切換後重啟自動輪播
+      if (window.CONFIG && CONFIG.banner.autoPlay) {
+        startAutoPlay();
+      }
+    });
   }
   
   if (prevBtn) {
-    prevBtn.addEventListener('click', prevSlide);
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      // 手動切換後重啟自動輪播
+      if (window.CONFIG && CONFIG.banner.autoPlay) {
+        startAutoPlay();
+      }
+    });
   }
   
   // 綁定指示點事件
@@ -114,11 +149,15 @@ function initBannerCarousel() {
     dot.addEventListener('click', () => {
       currentIndex = parseInt(dot.dataset.index);
       updateCarousel();
+      // 手動切換後重啟自動輪播
+      if (window.CONFIG && CONFIG.banner.autoPlay) {
+        startAutoPlay();
+      }
     });
   });
   
-  // 懸停時暫停/恢復自動輪播（根據配置）
-  if (CONFIG.banner.pauseOnHover && CONFIG.banner.autoPlay) {
+  // 懸停時暫停/恢復自動輪播
+  if (window.CONFIG && CONFIG.banner.pauseOnHover && CONFIG.banner.autoPlay) {
     carousel.addEventListener('mouseenter', stopAutoPlay);
     carousel.addEventListener('mouseleave', startAutoPlay);
   }
@@ -129,7 +168,7 @@ function initBannerCarousel() {
   
   carousel.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
-  });
+  }, { passive: true });
   
   carousel.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
@@ -142,73 +181,18 @@ function initBannerCarousel() {
       } else {
         prevSlide();
       }
-    }
-  });
-  
-  // 啟動自動輪播
-  startAutoPlay();
-}
-
-/**
- * 初始化滾動動畫
- * 使用 Intersection Observer API 偵測元素進入視口
- */
-function initScrollAnimations() {
-  // 滾動動畫配置 - 從 CONFIG 讀取
-  const observerOptions = {
-    root: null, // 使用視口作為根元素
-    rootMargin: CONFIG.scrollAnimation.rootMargin,
-    threshold: CONFIG.scrollAnimation.threshold
-  };
-
-  // 建立 Intersection Observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // 元素進入視口，加入動畫類別
-        entry.target.classList.add('is-visible');
-        // 可選：觀察一次後就停止觀察（提升效能）
-        // observer.unobserve(entry.target);
+      
+      // 觸控切換後重啟自動輪播
+      if (window.CONFIG && CONFIG.banner.autoPlay) {
+        startAutoPlay();
       }
-    });
-  }, observerOptions);
-
-  // 為需要動畫的元素加入觀察
-  const animatedElements = document.querySelectorAll('.animate-on-scroll');
-  animatedElements.forEach((element) => {
-    observer.observe(element);
-  });
-
-  // 為連結卡片加入序列動畫（快速連續）
-  const linkCards = document.querySelectorAll('.link-card');
-  linkCards.forEach((card, index) => {
-    card.classList.add('animate-on-scroll');
-    card.style.transitionDelay = `${index * 0.05}s`; // 減少延遲時間，更快速
-    observer.observe(card);
-  });
-
-  // Banner 也加入滾動動畫（只有在啟用時才處理）
-  if (CONFIG.banner.enabled) {
-    const banner = document.querySelector('.banner-section');
-    if (banner) {
-      banner.classList.add('animate-on-scroll');
-      observer.observe(banner);
     }
-  }
-
-  // 聯絡區塊加入動畫
-  const contactSection = document.querySelector('.contact-section');
-  if (contactSection) {
-    contactSection.classList.add('animate-on-scroll');
-    observer.observe(contactSection);
-  }
-}
-
-/**
- * 初始化視差滾動效果
- * 暫時停用以確保背景穩定性
- */
-function initParallaxEffect() {
-  // 暫時停用視差效果，確保背景不會滑走
-  // 如果需要可以之後重新啟用
+  }, { passive: true });
+  
+  // 初始化
+  loadBannerImages();
+  updateCarousel();
+  startAutoPlay();
+  
+  console.log('✓ Banner carousel initialized');
 }

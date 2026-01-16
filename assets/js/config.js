@@ -3,7 +3,7 @@
  * 專案環境設定檔
  */
 
-const CONFIG = {
+window.CONFIG = {
   // Banner 輪播設定
   banner: {
     enabled: true,              // true: 顯示 Banner | false: 隱藏 Banner
@@ -26,4 +26,4 @@ const CONFIG = {
 };
 
 // 凍結配置物件，防止意外修改
-Object.freeze(CONFIG);
+Object.freeze(window.CONFIG);
