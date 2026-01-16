@@ -430,8 +430,8 @@ a.bento-card:hover {
   width: 100%;
   background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-  margin-top: 60px;
-  padding: 48px 20px 32px;
+  margin-top: 40px;
+  padding: 32px 20px 24px;
   position: relative;
   z-index: 1;
 }
@@ -443,23 +443,23 @@ a.bento-card:hover {
 }
 
 .footer-title {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: #1d1d1f;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .footer-contact {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 
 .line-official-btn {
-  height: 36px;
+  height: 32px;
   width: auto;
   display: block;
   transition: opacity 0.3s ease;
@@ -472,7 +472,7 @@ a.bento-card:hover {
 .footer-link {
   color: #1d1d1f;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -483,15 +483,15 @@ a.bento-card:hover {
 
 .footer-divider {
   color: #86868b;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   user-select: none;
 }
 
 .footer-copyright {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #86868b;
-  margin-top: 24px;
-  padding-top: 24px;
+  margin-top: 12px;
+  padding-top: 12px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -678,18 +678,18 @@ a.bento-card:hover .card-arrow {
 
   /* 頁尾響應式 */
   .site-footer {
-    padding: 36px 16px 24px;
-    margin-top: 40px;
+    padding: 24px 16px 20px;
+    margin-top: 32px;
   }
 
   .footer-title {
-    font-size: 1.3rem;
-    margin-bottom: 16px;
+    font-size: 1rem;
+    margin-bottom: 12px;
   }
 
   .footer-contact {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
 
   .footer-divider {
@@ -697,17 +697,17 @@ a.bento-card:hover .card-arrow {
   }
 
   .line-official-btn {
-    height: 40px;
+    height: 32px;
   }
 
   .footer-link {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .footer-copyright {
-    font-size: 0.85rem;
-    margin-top: 20px;
-    padding-top: 20px;
+    font-size: 0.75rem;
+    margin-top: 12px;
+    padding-top: 12px;
   }
 }
 
