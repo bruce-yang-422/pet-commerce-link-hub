@@ -51,8 +51,8 @@ function initBannerCarousel() {
    */
   function loadBannerImages() {
     slides.forEach((slide, index) => {
-      const desktopImg = `assets/images/banners/banner-${index + 1}-desktop.jpg`;
-      const mobileImg = `assets/images/banners/banner-${index + 1}-mobile.jpg`;
+      const desktopImg = `assets/images/banners/banner-${index + 1}-desktop.png`;
+      const mobileImg = `assets/images/banners/banner-${index + 1}-mobile.png`;
       
       // 預載入圖片
       const img = new Image();
