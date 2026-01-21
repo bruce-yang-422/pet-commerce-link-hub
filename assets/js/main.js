@@ -47,34 +47,78 @@ function initBannerCarousel() {
   let autoPlayInterval = null;
   
   /**
+   * 設定 Banner 連結（從配置檔讀取）
+   */
+  function setupBannerLinks() {
+    if (window.CONFIG && CONFIG.banner.links && Array.isArray(CONFIG.banner.links)) {
+      slides.forEach((slide, index) => {
+        if (CONFIG.banner.links[index]) {
+          slide.setAttribute('href', CONFIG.banner.links[index]);
+        }
+      });
+      console.log('✓ Banner links configured');
+    }
+  }
+  
+  /**
    * 載入 Banner 圖片（桌面版與手機版）
+   * 支援 PNG 和 JPG 雙格式，優先載入 PNG
    */
   function loadBannerImages() {
     slides.forEach((slide, index) => {
-      const desktopImg = `assets/images/banners/banner-${index + 1}-desktop.png`;
-      const mobileImg = `assets/images/banners/banner-${index + 1}-mobile.png`;
+      const bannerIndex = index + 1;
+      const formats = ['png', 'jpg'];
+      let imageLoaded = false;
       
-      // 預載入圖片
-      const img = new Image();
-      img.onload = () => {
-        const updateBackground = () => {
-          if (window.innerWidth > 768) {
-            slide.style.backgroundImage = `url(${desktopImg})`;
-          } else {
-            slide.style.backgroundImage = `url(${mobileImg})`;
-          }
+      // 嘗試載入圖片（優先 PNG，再 JPG）
+      function tryLoadImage(formatIndex = 0) {
+        if (formatIndex >= formats.length) {
+          // 所有格式都失敗，顯示文字內容
+          console.warn(`⚠ Failed to load banner ${bannerIndex} in all formats`);
+          const content = slide.querySelector('.banner-content');
+          if (content) content.style.display = 'block';
+          return;
+        }
+        
+        const format = formats[formatIndex];
+        const desktopImg = `assets/images/banners/banner-${bannerIndex}-desktop.${format}`;
+        const mobileImg = `assets/images/banners/banner-${bannerIndex}-mobile.${format}`;
+        
+        // 預載入圖片
+        const img = new Image();
+        img.onload = () => {
+          imageLoaded = true;
+          
+          // 隱藏文字內容（圖片載入成功時）
+          const content = slide.querySelector('.banner-content');
+          if (content) content.style.display = 'none';
+          
+          // 設定背景圖片
+          const updateBackground = () => {
+            if (window.innerWidth > 768) {
+              slide.style.backgroundImage = `url(${desktopImg})`;
+            } else {
+              slide.style.backgroundImage = `url(${mobileImg})`;
+            }
+          };
+          
+          updateBackground();
+          window.addEventListener('resize', updateBackground);
+          
+          console.log(`✓ Banner ${bannerIndex} loaded (${format})`);
         };
         
-        updateBackground();
-        window.addEventListener('resize', updateBackground);
-      };
+        img.onerror = () => {
+          // 嘗試下一個格式
+          tryLoadImage(formatIndex + 1);
+        };
+        
+        // 開始載入
+        img.src = window.innerWidth > 768 ? desktopImg : mobileImg;
+      }
       
-      img.onerror = () => {
-        console.warn(`⚠ Failed to load banner image ${index + 1}`);
-      };
-      
-      // 開始載入
-      img.src = window.innerWidth > 768 ? desktopImg : mobileImg;
+      // 開始嘗試載入
+      tryLoadImage();
     });
   }
   
@@ -190,6 +234,7 @@ function initBannerCarousel() {
   }, { passive: true });
   
   // 初始化
+  setupBannerLinks();
   loadBannerImages();
   updateCarousel();
   startAutoPlay();

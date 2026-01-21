@@ -9,7 +9,13 @@ window.CONFIG = {
     enabled: true,              // true: 顯示 Banner | false: 隱藏 Banner
     autoPlay: true,             // 是否自動輪播
     autoPlayInterval: 5000,     // 自動輪播間隔（毫秒）
-    pauseOnHover: true          // 懸停時是否暫停
+    pauseOnHover: true,         // 懸停時是否暫停
+    // Banner 連結設定（可為每個 Banner 設定不同連結）
+    links: [
+      'https://myship.7-11.com.tw/seller/profile?id=GM2601212460411',  // Banner 1
+      'https://myship.7-11.com.tw/seller/profile?id=GM2601212460411',  // Banner 2
+      'https://myship.7-11.com.tw/seller/profile?id=GM2601212460411'   // Banner 3
+    ]
   },
 
   // 滾動動畫設定

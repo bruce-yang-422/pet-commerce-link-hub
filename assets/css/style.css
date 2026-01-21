@@ -197,6 +197,14 @@ a.bento-card:hover {
   background-size: cover;
   background-position: center;
   position: relative;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.banner-slide:hover {
+  opacity: 0.95;
 }
 
 .banner-content {
@@ -204,6 +212,8 @@ a.bento-card:hover {
   color: white;
   z-index: 2;
   padding: 40px;
+  display: block;
+  pointer-events: none;
 }
 
 .banner-content h3 {
